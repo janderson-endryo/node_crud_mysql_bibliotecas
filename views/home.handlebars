@@ -1,0 +1,67 @@
+<style>
+
+    body{
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 21px;
+        font-weight: bolder;
+        
+    }
+
+    table{ 
+            border-collapse: collapse; /*para junta as linha novo comando*/
+            position: relative; /*cabeçalho fixo em tabelas*/
+        }
+
+        th,td{
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+
+
+</style>
+
+<h1>lista de usuarios cadastrados</h1>
+
+
+    
+<form class="new-post" action="/form" method="get">
+  <button type="submit">novo cadastro</button>
+</form>
+<br>
+{{#each cadastrados}}
+<table class="table">
+  <thead>
+    <td>id</td>
+    <td>nome</td>
+    <td>email</td>
+    <td>telefone</td>
+    <td>Ações</td>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>{{dataValues.id}}</td>
+      <td>{{dataValues.nome}}</td>
+      <td>{{dataValues.email}}</td>
+      <td>{{dataValues.telefone}}</td>
+      <td>
+        <div class="grup-action">
+          <form action="/editar/{{dataValues.id}}" method="get">
+            <button type="submit">
+              <i>edit</i>
+            </button>
+          </form>
+          <form class="form-action" action="/deletar/{{dataValues.id}}" method="post">
+            <button type="submit" class="action-delete">
+              <i>delete</i>
+            </button>
+          </form>
+        </div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+<br>
+{{/each}}

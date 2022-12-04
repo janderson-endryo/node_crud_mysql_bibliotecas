@@ -1,0 +1,142 @@
+<style>
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2? family= Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200; 1.300;1.400;1.500;1.600;1.700;1.800;1.900 & display=trocar');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    width: 97vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background:linear-gradient(-45deg, #ffce51, #ff7253, #fd5754);
+    font-size: 22px;
+}
+
+h1{
+    text-align: center;
+}
+
+fieldset{
+    margin: 8px;
+    padding: 12px;
+    border-radius: 22px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.568);
+}
+
+legend{
+    text-align: center;
+}
+form{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50% );
+    background: white;
+    border-radius: 22px;
+    padding: 10px;
+    width: min-content;
+    align-items: center;
+    animation: iniciar 1.3s ease-out;
+    pointer-events: all;
+}
+
+.inputt{
+    min-width: 280px;
+    border-radius: 22px;
+    border: 2px solid black;
+    padding: 5px;
+    margin: 0px 0px 12px -5px;
+}
+
+.inputt > i {
+    padding: 1px;
+    background: -webkit-linear-gradient(-45deg, #ffce51, #ff7253, #fd5754 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.inputt  input {
+    width: 81%;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17.5px;
+    transform: translateY(-10%);
+}
+
+#btn{
+    margin-top: 10%;
+    width: 100%;
+    text-align: center;
+}
+
+#btn input {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 40px;
+    background:linear-gradient(-45deg, #ffce51, #ff7253, #fd5754);
+    border: none;
+    font-size: 20px;
+    border-radius: 22px;
+    outline: none;
+    cursor: pointer;
+}
+
+#btn input:hover {
+    background:linear-gradient(-45deg, #ffb700, #fc5d3a, #ec1e1a);
+}
+
+@keyframes iniciar {
+    0%{
+        top: -20%;
+        opacity: 10%;
+        pointer-events: none;
+    }
+
+    100%{
+        top: 50%;
+        opacity: 100%;
+        pointer-events: all;
+    }
+
+
+}
+</style>
+
+<form action="/add" method="post" autocomplete="on">
+
+        <h1>cadastro</h1>
+        <fieldset>
+            <legend>agenda 2023</legend>
+
+        <label for="inome">Nome</label>
+
+        <div class="inputt">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            <input type="text" name="nome" id="inome" required minlength="3" maxlength="120" placeholder="escreva seu nome completo" autocomplete="username">
+        </div>
+
+        <label for="iemail">Email</label>
+
+        <div class="inputt">
+            <i class="far fa-envelope"></i>
+            <input type="email" name="email" id="iemail" required autocomplete="email" placeholder="escreva seu email">
+        </div>
+
+        <label for="itel">Telefone</label>
+
+        <div class="inputt">
+            <i class="fas fa-lock"></i>
+            <input type="tel" name="telefone" id="itel" required  placeholder="(99) 9 9999-9999">
+        </div>
+
+        <div id="btn">
+            <input type="submit" value="Enviar">
+        </div>
+
+        </fieldset>
+    </form>
