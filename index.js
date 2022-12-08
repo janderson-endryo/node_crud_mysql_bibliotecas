@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 
+module.exports = app
+
 const cadastra = require('./models/cadastra')
 
 // express-handlebars
@@ -21,6 +23,34 @@ app.use(bodyparser.urlencoded({extended: false}))
 app.use(bodyparser.json())
 
 // rotas
+// rota para mostra usuarios
+
+app.get('/', function(req, res){
+  cadastra.findAll({order: [['id', 'DESC']]}).then(function(cadastrados) {
+  res.render('home', {cadastrados: cadastrados})
+  })
+})
+
+// rota para acessa o formulario
+
+app.get('/form', function(req, res) {
+  res.render('form')
+})
+
+// rota para cadastro
+
+app.post('/add', function(req, res) {
+  cadastra.create({
+      nome: req.body.nome,
+      email: req.body.email,
+      telefone: req.body.telefone
+  }).then(function(){
+      res.redirect("/")
+  }).catch(function(erro){
+      res.send(`usuario nao cadastrado: ${erro}`)
+  })
+  
+})
 
 // rota para editar
 
@@ -64,39 +94,12 @@ app.post('/deletar/:id', function(req, res){
     })
 })
 
-// rota para mostra usuarios
-
-app.get('/', function(req, res){
-    cadastra.findAll({order: [['id', 'DESC']]}).then(function(cadastrados) {
-    res.render('home', {cadastrados: cadastrados})
-    })
-})
-
-// rota para acessa o formulario
-
-app.get('/form', function(req, res) {
-    res.render('form')
-})
-
-// rota para cadastro
-
-app.post('/add', function(req, res) {
-    cadastra.create({
-        nome: req.body.nome,
-        email: req.body.email,
-        telefone: req.body.telefone
-    }).then(function(){
-        res.redirect("/")
-    }).catch(function(erro){
-        res.send(`usuario nao cadastrado: ${erro}`)
-    })
-    
-})
 
 
-app.listen(8087,function(){
-    console.log("ok...")
-});
+
+
+
+
 
 
 
