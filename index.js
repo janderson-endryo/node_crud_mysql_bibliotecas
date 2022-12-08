@@ -96,7 +96,7 @@ app.post('/add', function(req, res) {
 
 app.listen(8087,function(){
     console.log("ok...")
-})
+});
 
 
 
