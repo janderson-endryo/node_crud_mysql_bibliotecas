@@ -94,6 +94,10 @@ app.post('/deletar/:id', function(req, res){
     })
 })
 
+app.listen(8087,function(){
+  console.log("ok...")
+})
+
 
 
 
