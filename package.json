@@ -4,6 +4,28 @@
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.27.0"
-  }
+    "sequelize": "^6.27.0",
+    "supertest": "^6.3.3"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
+  },
+  "name": "node_crud_mysql_bibliotecas",
+  "description": "um crud com node.js usando sequelize, express, express-handlebars, body-parser e o mysql2.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/jest/bin/jest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janderson-endryo/node_crud_mysql_bibliotecas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janderson-endryo/node_crud_mysql_bibliotecas/issues"
+  },
+  "homepage": "https://github.com/janderson-endryo/node_crud_mysql_bibliotecas#readme"
 }
